@@ -49,6 +49,19 @@ plus.addEventListener("click", () => {
     output.innerHTML = myStr;
 });
 
+document.addEventListener("keydown", (event) => {
+    if(event.keyCode === 13) {
+        milim.push(sumOfGimatria(input.value));
+        let myStr = "";
+        milim.forEach((mila) => {
+            myStr += String(mila);
+            myStr += " + ";
+        });
+        input.value = "";
+        output.innerHTML = myStr;
+    }
+})
+
 shave.addEventListener("click", () => {
     milim.push(sumOfGimatria(input.value));
     let myStr = "";
