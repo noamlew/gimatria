@@ -107,7 +107,9 @@ bitul.addEventListener("click", () => {
 function sumOfGimatria(str) {
     let sum = 0;
     for (let c of str) {
-        sum += milon[c];
+        if (c in milon) {
+            sum += milon[c];
+        }
     }
     return sum;
 }
