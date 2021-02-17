@@ -59,6 +59,10 @@ body {
     font-family: "Miriam Libre", sans-serif;
 }
 
+#plus-library {
+    display: none;
+}
+
 #libraryDiv {
     width: 200px;
     position: absolute;
@@ -91,8 +95,4 @@ body {
     display: block;
     font-size: 15px;
     font-family: "Miriam Libre", sans-serif;
-}
-
-#plus-library {
-    display: none;
 }
