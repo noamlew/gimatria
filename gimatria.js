@@ -4,6 +4,8 @@ const input = document.getElementById("input");
 const limchok = document.getElementById("limchok");
 const bitul = document.getElementById("bitul");
 const output = document.getElementById("output");
+const plusLibrary = document.getElementById("plus-library");
+const library = document.getElementById("library");
 
 const milon = {
     א: 1,
@@ -33,33 +35,46 @@ const milon = {
     ך: 70,
     ף: 80,
     ץ: 90,
-    " ": 0,
 };
 
 let milim = [];
 
 plus.addEventListener("click", () => {
-    milim.push({"name" : input.value, "value" : sumOfGimatria(input.value)});
+    milim.push({ name: input.value, value: sumOfGimatria(input.value) });
     let dt1 = document.createElement("dt");
-    dt1.innerHTML = milim[milim.length - 1]["name"] + "  -  " + String(milim[milim.length - 1]["value"]) + " + ";
+    dt1.innerHTML =
+        milim[milim.length - 1]["name"] +
+        "  -  " +
+        String(milim[milim.length - 1]["value"]) +
+        " + ";
     output.appendChild(dt1);
     input.value = "";
+    plusLibrary.style.display = "block";
 });
 
 document.addEventListener("keydown", (event) => {
     if (event.keyCode === 13) {
-        milim.push({"name" : input.value, "value" : sumOfGimatria(input.value)});
+        milim.push({ name: input.value, value: sumOfGimatria(input.value) });
         let dt1 = document.createElement("dt");
-        dt1.innerHTML = milim[milim.length - 1]["name"] + " - " + String(milim[milim.length - 1]["value"]) + " + ";
+        dt1.innerHTML =
+            milim[milim.length - 1]["name"] +
+            " - " +
+            String(milim[milim.length - 1]["value"]) +
+            " + ";
         output.appendChild(dt1);
         input.value = "";
+        plusLibrary.style.display = "block";
     }
 });
 
 shave.addEventListener("click", () => {
-    milim.push({"name" : input.value, "value" : sumOfGimatria(input.value)});
+    plusLibrary.style.display = "block";
+    milim.push({ name: input.value, value: sumOfGimatria(input.value) });
     const dt = document.createElement("dt");
-    dt.innerHTML = milim[milim.length - 1]["name"] + "  -  " + String(milim[milim.length - 1]["value"]);
+    dt.innerHTML =
+        milim[milim.length - 1]["name"] +
+        "  -  " +
+        String(milim[milim.length - 1]["value"]);
     output.appendChild(dt);
     let sum = 0;
     milim.forEach((mila1) => {
@@ -75,6 +90,7 @@ shave.addEventListener("click", () => {
 limchok.addEventListener("click", () => {
     milim = [];
     output.innerHTML = "";
+    plusLibrary.style.display = "none";
 });
 
 bitul.addEventListener("click", () => {
@@ -86,8 +102,9 @@ bitul.addEventListener("click", () => {
         output.appendChild(dt1);
         input.value = "";
     });
-    input.value = "";
-    output.innerHTML = myStr;
+    if (milim.length === 0) {
+        plusLibrary.style.display = "none";
+    }
 });
 
 function sumOfGimatria(str) {
@@ -99,3 +116,16 @@ function sumOfGimatria(str) {
     }
     return sum;
 }
+
+plusLibrary.addEventListener("click", () => {
+    let sum = 0;
+    let str = "";
+    milim.forEach((mila) => {
+        sum += mila["value"];
+        str += " " + mila["name"];
+    });
+    let br = document.createElement("br");
+    str += " - " + String(sum);
+    library.innerHTML += str;
+    library.appendChild(br);
+});
