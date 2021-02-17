@@ -137,5 +137,3 @@ libraryDiv.addEventListener("click", () => {
         library.innerHTML = "";
     }
 });
-
-console.log(location.hostname);
