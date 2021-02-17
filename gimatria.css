@@ -60,6 +60,7 @@ body {
 }
 
 #libraryDiv {
+    width: 200px;
     position: absolute;
     margin-top: 45px;
     left: 80%;
