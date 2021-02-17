@@ -6,6 +6,7 @@ const bitul = document.getElementById("bitul");
 const output = document.getElementById("output");
 const plusLibrary = document.getElementById("plus-library");
 const library = document.getElementById("library");
+const libraryDiv = document.getElementById("libraryDiv");
 
 const milon = {
     א: 1,
@@ -128,4 +129,11 @@ plusLibrary.addEventListener("click", () => {
     str += " - " + String(sum);
     library.innerHTML += str;
     library.appendChild(br);
+});
+
+libraryDiv.addEventListener("click", () => {
+    let answer =  confirm("אתה בטוח שאתה רוצה למחוק את ההיסטוריה?");
+    if (answer) {
+        library.innerHTML = "";
+    }
 });
