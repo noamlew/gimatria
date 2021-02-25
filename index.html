@@ -22,9 +22,7 @@
         />
     </head>
     <body>
-        <div id="header">
-            ©DVIR GENUT & NOAM DANIEL LEWIN
-        </div>
+        <div id="header" onclick="wiki()">©DVIR GENUT & NOAM DANIEL LEWIN</div>
         <div id="tabeDiv">
             <table>
                 <tr align="center">
@@ -35,7 +33,11 @@
                         <div class="buttons" id="plus">+</div>
                     </td>
                     <td>
-                        <input type="search" placeholder="הכנס כאן" id="input" />
+                        <input
+                            type="search"
+                            placeholder="הכנס כאן"
+                            id="input"
+                        />
                     </td>
                     <td>
                         <div class="buttons" id="limchok">X</div>
@@ -58,6 +60,16 @@
             <p id="history">:היסטוריה</p>
             <p id="library"></p>
         </div>
+        <!-- counter -->
+        <div align="center" id="counter">
+            <p>מספר כניסות לאתר</p>
+            <img
+                src="https://www.websitecounterfree.com/c.php?d=5&id=15165&s=11"
+                border="0"
+                alt="Free Website Counter"
+            />
+        </div>
+        <!-- counter -->
     </body>
     <script src="gimatria.js"></script>
 </html>
