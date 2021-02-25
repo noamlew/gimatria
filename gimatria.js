@@ -137,3 +137,7 @@ libraryDiv.addEventListener("click", () => {
         library.innerHTML = "";
     }
 });
+
+function wiki() {
+    window.open("https://he.wikipedia.org/wiki/%D7%92%D7%99%D7%9E%D7%98%D7%A8%D7%99%D7%94");
+}
