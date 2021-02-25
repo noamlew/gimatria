@@ -36,7 +36,6 @@ body {
     height: 40px;
     background-color: white;
     border-radius: 200px;
-    /* border: 1px solid black; */
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
@@ -76,7 +75,6 @@ body {
     display: block;
     text-align: center;
     justify-content: center;
-    /* background-color: rgb(108, 159, 255); */
     background-color: blanchedalmond;
     border-radius: 10px;
     border: 2px solid;
