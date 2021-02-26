@@ -7,6 +7,7 @@ const output = document.getElementById("output");
 const plusLibrary = document.getElementById("plus-library");
 const library = document.getElementById("library");
 const libraryDiv = document.getElementById("libraryDiv");
+const downloadButton = document.getElementById("download-button");
 
 const milon = {
     א: 1,
@@ -39,6 +40,7 @@ const milon = {
 };
 
 let milim = [];
+let red = true;
 
 plus.addEventListener("click", () => {
     milim.push({ name: input.value, value: sumOfGimatria(input.value) });
@@ -132,12 +134,55 @@ plusLibrary.addEventListener("click", () => {
 });
 
 libraryDiv.addEventListener("click", () => {
-    let answer =  confirm("אתה בטוח שאתה רוצה למחוק את ההיסטוריה?");
-    if (answer) {
-        library.innerHTML = "";
+    if (red) {
+        let answer = confirm("אתה בטוח שאתה רוצה למחוק את ההיסטוריה?");
+        if (answer) {
+            library.innerHTML = "";
+        }
     }
 });
 
+libraryDiv.addEventListener("mouseover", () => {
+    libraryDiv.style.background = "rgb(255, 205, 205)";
+});
+
+libraryDiv.addEventListener("mouseleave", () => {
+    libraryDiv.style.background = "blanchedalmond";
+});
+
 function wiki() {
-    window.open("https://he.wikipedia.org/wiki/%D7%92%D7%99%D7%9E%D7%98%D7%A8%D7%99%D7%94");
+    window.open(
+        "https://he.wikipedia.org/wiki/%D7%92%D7%99%D7%9E%D7%98%D7%A8%D7%99%D7%94"
+    );
 }
+
+function download(filename, text) {
+    var element = document.createElement("a");
+    element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+    );
+    element.setAttribute("download", filename);
+
+    element.style.display = "none";
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+downloadButton.addEventListener("click", () => {
+    let text = library.innerHTML;
+    text = text.split("<br>").join(",\n");
+    download("gimatria.txt", text);
+});
+
+downloadButton.addEventListener("mouseenter", () => {
+    red = false;
+    libraryDiv.style.background = "blanchedalmond";
+});
+
+downloadButton.addEventListener("mouseleave", () => {
+    red = true;
+});
