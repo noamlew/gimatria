@@ -82,10 +82,6 @@ body {
     transition: 0.5s;
 }
 
-#libraryDiv:hover {
-    background-color: rgb(255, 205, 205);
-}
-
 #history {
     display: block;
     font-size: 20px;
@@ -108,6 +104,21 @@ body {
     top: 85%;
     left: 90%;
     font-family: "Miriam Libre", sans-serif;
+}
+
+#download-button {
+    width: 30px;
+    height: 30px;
+    transition: 1s;
+}
+
+#download-button:hover {
+    width: 60px;
+    height: 60px;
+}
+
+#image {
+   width: 100%; 
 }
 
 
