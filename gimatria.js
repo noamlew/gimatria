@@ -8,6 +8,8 @@ const plusLibrary = document.getElementById("plus-library");
 const library = document.getElementById("library");
 const libraryDiv = document.getElementById("libraryDiv");
 const downloadButton = document.getElementById("download-button");
+const targetInput = document.getElementById("targetInput");
+const targetP = document.getElementById("targetP");
 
 const milon = {
     א: 1,
@@ -53,9 +55,11 @@ plus.addEventListener("click", () => {
     output.appendChild(dt1);
     input.value = "";
     plusLibrary.style.display = "block";
+    target();
 });
 
 document.addEventListener("keydown", (event) => {
+    target();
     if (event.keyCode === 13) {
         milim.push({ name: input.value, value: sumOfGimatria(input.value) });
         let dt1 = document.createElement("dt");
@@ -67,6 +71,7 @@ document.addEventListener("keydown", (event) => {
         output.appendChild(dt1);
         input.value = "";
         plusLibrary.style.display = "block";
+        target();
     }
 });
 
@@ -83,6 +88,7 @@ shave.addEventListener("click", () => {
     milim.forEach((mila1) => {
         sum += mila1["value"];
     });
+    target();
     let dt2 = document.createElement("dt");
     dt2.innerHTML = " = " + String(sum);
     output.appendChild(dt2);
@@ -94,6 +100,7 @@ limchok.addEventListener("click", () => {
     milim = [];
     output.innerHTML = "";
     plusLibrary.style.display = "none";
+    target();
 });
 
 bitul.addEventListener("click", () => {
@@ -108,6 +115,7 @@ bitul.addEventListener("click", () => {
     if (milim.length === 0) {
         plusLibrary.style.display = "none";
     }
+    target();
 });
 
 function sumOfGimatria(str) {
@@ -156,6 +164,12 @@ function wiki() {
     );
 }
 
+function info() {
+    window.open(
+        "https://www.canva.com/design/DAEXPCyK22I/w3eo-6tftOKBlQHxCxayJA/view?website#2"
+    );
+}
+
 function download(filename, text) {
     var element = document.createElement("a");
     element.setAttribute(
@@ -174,8 +188,8 @@ function download(filename, text) {
 
 downloadButton.addEventListener("click", () => {
     let text = library.innerHTML;
-    text = text.split("<br>").join(",\n");
-    download("gimatria.txt", text);
+    text = text.split("<br>").join("\n");
+    download(`gimatria-${targetInput.value}.txt`, text);
 });
 
 downloadButton.addEventListener("mouseenter", () => {
@@ -186,3 +200,11 @@ downloadButton.addEventListener("mouseenter", () => {
 downloadButton.addEventListener("mouseleave", () => {
     red = true;
 });
+
+function target() {
+    let sum = 0;
+    milim.forEach((e) => {
+        sum += e.value;
+    });
+    targetP.innerHTML = sumOfGimatria(targetInput.value) - sum;
+}
