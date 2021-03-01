@@ -46,10 +46,15 @@ body {
     color: black;
     font-size: 25px;
     font-family: "Saira Stencil One", cursive;
+    transition: 0.2s;
 }
 
 .buttons:hover {
     background-color: rgb(175, 175, 175);
+}
+
+.buttons:active {
+    background-color: rgb(125, 125, 125);
 }
 
 #input {
