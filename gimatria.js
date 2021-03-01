@@ -165,9 +165,10 @@ function wiki() {
 }
 
 function info() {
-    window.open(
-        "https://www.canva.com/design/DAEXPCyK22I/w3eo-6tftOKBlQHxCxayJA/view?website#2"
-    );
+    // window.open(
+    //     "https://www.canva.com/design/DAEXPCyK22I/w3eo-6tftOKBlQHxCxayJA/view?website#2"
+    // );
+    window.open("help.html");
 }
 
 function download(filename, text) {
@@ -208,3 +209,4 @@ function target() {
     });
     targetP.innerHTML = sumOfGimatria(targetInput.value) - sum;
 }
+
